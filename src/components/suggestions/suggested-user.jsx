@@ -27,7 +27,7 @@ export default function SuggestedUser({ user: { username, fullName, userId, docI
                     <Link to={`/${username}`} ><h5 className="text-sm font-semibold" >{username}</h5></Link>
                     <span className="text-sm text-gray-500 font-light" >{fullName}</span>
                 </div>
-                <button className={`${isfollowing ? 'text-black bg-white border-1 border-black' : 'text-white bg-blue'} h-8 px-4 text-sm rounded-sm font-semibold cursor-pointer`} onClick={handleFollowUser} >{!isfollowing ? 'Follow' : 'Following'}</button>
+                <button className={`${isfollowing ? 'text-black bg-white border-1 border-black' : 'text-white bg-blue'} h-7 md:h-8 px-2 md:px-4 text-sm rounded-sm font-semibold cursor-pointer`} onClick={handleFollowUser} >{!isfollowing ? 'Follow' : 'Following'}</button>
             </div>
         </div>
     )

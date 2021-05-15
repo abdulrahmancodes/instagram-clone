@@ -3,7 +3,7 @@ import FirebaseContext from "../context/firebase";
 import "../styles/styles.css";
 import * as ROUTES from "../constants/routes";
 import { Link, useHistory } from "react-router-dom";
-import { doesUsernameExists } from '../services/firebase'
+import { doesUsernameExists } from "../services/firebase";
 
 export default function SignUp() {
     const history = useHistory();
@@ -45,20 +45,25 @@ export default function SignUp() {
 
         if (!usernameExists) {
             try {
-                const userCredential = await firebase.auth().createUserWithEmailAndPassword(emailAddress, password);
+                const userCredential = await firebase
+                    .auth()
+                    .createUserWithEmailAndPassword(emailAddress, password);
                 await userCredential.user.updateProfile({
-                    displayName: username
+                    displayName: username,
                 });
 
-                await firebase.firestore().collection('users').add({
-                    userId: userCredential.user.uid,
-                    username: username.toLowerCase(),
-                    fullName,
-                    emailAddress: emailAddress.toLowerCase(),
-                    following: ['2'],
-                    followers: [],
-                    dateCreated: Date.now()
-                });
+                await firebase
+                    .firestore()
+                    .collection("users")
+                    .add({
+                        userId: userCredential.user.uid,
+                        username: username.toLowerCase(),
+                        fullName,
+                        emailAddress: emailAddress.toLowerCase(),
+                        following: ["2"],
+                        followers: [],
+                        dateCreated: Date.now(),
+                    });
 
                 history.push(ROUTES.DASHBOARD);
             } catch (error) {
@@ -70,9 +75,9 @@ export default function SignUp() {
             }
         } else {
             setUsername("");
-            setError('That username is already taken, please try another.');
+            setError("That username is already taken, please try another.");
         }
-    }
+    };
     return (
         <div className="flex flex-col justify-center items-center font-roboto bg-gray py-8">
             <div className="width-350 p-10 flex flex-col m-auto sm:border-1 border-gray-300">
@@ -84,7 +89,7 @@ export default function SignUp() {
                 <h4 className="text-lg font-semibold text-gray-500 text-center mb-4">
                     Sign up to see photos and videos from your friends.
         </h4>
-                <form method="POST" onSubmit={handleSignUp} >
+                <form method="POST" onSubmit={handleSignUp}>
                     <input
                         type="text"
                         placeholder="Email"
@@ -117,7 +122,8 @@ export default function SignUp() {
                             value={password}
                         />
                         <span
-                            className={` ${password.length > 0 ? 'visible' : 'invisible'} font-extrabold text-sm cursor-pointer`}
+                            className={` ${password.length > 0 ? "visible" : "invisible"
+                                } font-extrabold text-sm cursor-pointer`}
                             onClick={toggleVisibility}
                         >
                             Show
@@ -131,8 +137,11 @@ export default function SignUp() {
                     >
                         Sign Up
           </button>
-                    {error ? (<p className="mt-6 text-xs text-red-500 text-center">{error}</p>) : ("")}
-
+                    {error ? (
+                        <p className="mt-6 text-xs text-red-500 text-center">{error}</p>
+                    ) : (
+                        ""
+                    )}
                 </form>
             </div>
             <div className="width-350 mt-2 border-gray-300 border-solid sm:border-1 px-16 text-center py-5">

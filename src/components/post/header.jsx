@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import DashboardContext from "../../context/dashboardContext";
 
 export default function Header({ username, postId }) {
-    const { setClickedPostUser, setClickedPost, setMoreOptionsIsOpen } = useContext(DashboardContext);
+    const { setClickedPostUser, setClickedPost, setMoreOptionsIsOpen } =
+        useContext(DashboardContext);
 
     function handleClick(e) {
         setMoreOptionsIsOpen(true);
-        setClickedPostUser(username)
-        setClickedPost(postId)
-    } 
+        setClickedPostUser(username);
+        setClickedPost(postId);
+    }
 
     return username ? (
         <div className="flex items-center justify-between border-b-1 border-gray-200 px-4 py-3 ">

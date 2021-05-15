@@ -33,8 +33,8 @@ export default function Login() {
       await firebase.auth().signInWithEmailAndPassword(emailAddress, password);
       history.push(ROUTES.DASHBOARD);
     } catch (error) {
-      setEmailAddress('');
-      setPassword('');
+      setEmailAddress("");
+      setPassword("");
       setError(error.message);
     }
   };
@@ -106,7 +106,8 @@ export default function Login() {
                 value={password}
               />
               <span
-                className={` ${password.length > 0 ? 'visible' : 'invisible'} font-extrabold text-sm cursor-pointer`}
+                className={` ${password.length > 0 ? "visible" : "invisible"
+                  } font-extrabold text-sm cursor-pointer`}
                 onClick={toggleVisibility}
               >
                 Show
