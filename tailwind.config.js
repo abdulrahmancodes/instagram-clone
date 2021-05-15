@@ -20,51 +20,51 @@ module.exports = {
         'sm': '450px',
         '640': '614px',
         'md': '875px'
-      }, 
+      },
 
       backgroundImage: theme => ({
         'bg-phones': "url('./images/phones.png')",
         'all-images': "url('images/all-images.png')",
         'plus': "url('/images/plus.svg')"
-       }),
+      }),
 
       keyframes: {
         imgFade: {
           '0%': {
-            opacity:1
+            opacity: 1
           },
           '17%': {
-            opacity:1
+            opacity: 1
           },
           '25%': {
-            opacity:0
+            opacity: 0
           },
           '92%': {
-            opacity:0
+            opacity: 0
           },
           '100%': {
-            opacity:1
+            opacity: 1
           }
-         },
+        },
 
-         LoadingBarEnter: {
-           '0%': {
-              transform: 'scaleX(0)'
-           },
-           '100': {
-             transform: 'scaleX(1)'
-           }
-         },
+        LoadingBarEnter: {
+          '0%': {
+            transform: 'scaleX(0)'
+          },
+          '100': {
+            transform: 'scaleX(1)'
+          }
+        },
 
-         LoadingBarProgress: {
-           '0%': {
+        LoadingBarProgress: {
+          '0%': {
             backgroundPosition: '0% 0'
-           },
-           '100%': {
+          },
+          '100%': {
             backgroundPosition: '125% 0'
-           }
-         }
-       }
+          }
+        }
+      }
     },
   },
   variants: {
