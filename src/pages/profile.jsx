@@ -72,7 +72,7 @@ export default function Profile() {
 
 
     return (
-        <div className="bg-fa h-screen font-roboto" >
+        <div className="bg-fa font-roboto" >
             {isMobile &&
                 <div className="border-b-1 border-gray-300 px-4 py-2 flex w-full justify-between items-center">
                     <ExitToAppIcon className='w-5 cursor-pointer' onClick={() => {

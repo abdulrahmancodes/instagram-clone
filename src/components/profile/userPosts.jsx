@@ -20,7 +20,7 @@ export default function UserPosts({ userId }) {
 
     return (
         <div className="grid grid-cols-3 md:gap-8 gap-1 mb-10" >
-            { userPosts ? (userPosts.map(post => <div><img src={post.imageSrc} alt={post.caption} key={post.imageSrc} /></div>)) : <Loader top="65%" />}
+            { userPosts ? (userPosts.map(post => <img src={post.imageSrc} alt={post.docId} key={post.imageSrc} className="w-full h-full" /> )) : <Loader top="65%" />}
             { (userPosts && userPosts.length === 0) &&
                 (
                     <div className="flex flex-col items-center justify-center mx-auto col-span-3 mt-16">
@@ -33,3 +33,5 @@ export default function UserPosts({ userId }) {
         </div>
     )
 }
+
+ 

@@ -27,7 +27,7 @@ export default function SavedPosts({ userId }) {
 
     return (
         <div className="grid grid-cols-3 md:gap-8 gap-1 auto-rows-fr mb-10" >
-            { savedPosts ? (savedPosts.map(post => <div><img src={post.imageSrc} alt={post.caption} key={post.imageSrc} /></div>)) : <Loader top="65%" />}
+            { savedPosts ? (savedPosts.map(post => <img src={post.imageSrc} alt={post.caption} key={post.imageSrc} className="w-full h-full" />)) : <Loader top="65%" />}
             { (savedPosts && savedPosts.length === 0) &&
                 (
                     <div className="flex flex-col items-center justify-center mx-auto col-span-3 mt-16">
