@@ -85,7 +85,7 @@ export default function Profile() {
     }, [username]);
 
     return (
-        <div className="bg-fa font-roboto">
+        <div className="bg-fa font-roboto min-h-screen">
             {isMobile && (
                 <div className="border-b-1 border-gray-300 px-4 py-2 flex w-full justify-between items-center">
                     <ExitToAppIcon

@@ -80,7 +80,7 @@ export default function Header() {
         window.location.pathname === ROUTES.DASHBOARD ? true : false;
 
     return (
-        <header className="fixed z-20 top-0 w-full lg:px-52 flex bg-white justify-center items-center sm:justify-between px-4 py-3 border-b-1 border-gray-300">
+        <header className="fixed z-20 top-0 w-full lg:px-52 flex bg-white justify-center items-center sm:justify-between px-4 py-2 border-b-1 border-gray-300">
             <Link to={ROUTES.DASHBOARD}>
                 <div>
                     <img src="/images/logo (1).png" alt="logo" className="wh-logo" />

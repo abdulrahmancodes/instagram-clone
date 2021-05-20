@@ -3,10 +3,12 @@ import FirebaseContext from "../context/firebase";
 import "../styles/styles.css";
 import * as ROUTES from "../constants/routes";
 import { Link, useHistory } from "react-router-dom";
+import Loader from "react-loader";
 
 export default function Login() {
   const history = useHistory();
   const { firebase } = useContext(FirebaseContext);
+  const [isLoading, setIsLoading] = useState(false)
 
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
@@ -30,8 +32,10 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      setIsLoading(true)
       await firebase.auth().signInWithEmailAndPassword(emailAddress, password);
       history.push(ROUTES.DASHBOARD);
+      setIsLoading(false)
     } catch (error) {
       setEmailAddress("");
       setPassword("");
@@ -116,10 +120,10 @@ export default function Login() {
             <button
               disabled={isInvalid}
               type="submit"
-              className={`w-full h-7 text-sm text-white rounded-sm bg-blue ${isInvalid ? "opacity-50" : "opacity-100"
+              className={`w-full h-7 text-sm text-white rounded-sm bg-blue ${(isInvalid || isLoading) ? "opacity-50" : "opacity-100"
                 }`}
             >
-              Log In
+              { isLoading ? <Loader scale={.5} position="relative" /> : 'Log In' }
             </button>
           </form>
         </div>

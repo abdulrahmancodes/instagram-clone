@@ -30,7 +30,7 @@ export default function Navbar() {
 
     return (
         <nav className="fixed w-screen bg-white bottom-0 z-20">
-            <ul className="flex sm:hidden justify-between h-12 px-8 py-2 border-t-1 border-gray-300 ">
+            <ul className="flex sm:hidden justify-between h-11 px-8 py-2 border-t-1 border-gray-300 ">
                 <li>
                     {" "}
                     {isHome ? (

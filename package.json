@@ -4,7 +4,7 @@
   "scripts": {
     "serve": "vite preview",
     "dev": "npm run tailwind && vite",
-    "build": "npm run tailwind && vite build",
+    "build": "NODE_ENV=production npm run tailwind && vite build",
     "tailwind": "npx tailwindcss build tailwind.css -o src/styles/styles.css"
   },
   "dependencies": {

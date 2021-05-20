@@ -8,7 +8,7 @@ import { doesUsernameExists } from "../services/firebase";
 export default function SignUp() {
     const history = useHistory();
     const { firebase } = useContext(FirebaseContext);
-
+    const [isLoading, setIsLoading] = useState(false);
     const [emailAddress, setEmailAddress] = useState("");
     const [fullName, setFullName] = useState("");
     const [username, setUsername] = useState("");
@@ -51,7 +51,7 @@ export default function SignUp() {
                 await userCredential.user.updateProfile({
                     displayName: username,
                 });
-
+                setIsLoading(true);
                 await firebase
                     .firestore()
                     .collection("users")
@@ -64,7 +64,7 @@ export default function SignUp() {
                         followers: [],
                         dateCreated: Date.now(),
                     });
-
+                setIsLoading(false);
                 history.push(ROUTES.DASHBOARD);
             } catch (error) {
                 setEmailAddress("");
@@ -135,8 +135,8 @@ export default function SignUp() {
                         className={`w-full h-10 mt-2 text-sm text-white font-bold rounded-sm bg-blue ${isInvalid ? "opacity-50" : "opacity-100"
                             }`}
                     >
-                        Sign Up
-          </button>
+                        {isLoading ? <Loader scale={.5} position="relative" /> : 'Sign Up'}
+                    </button>
                     {error ? (
                         <p className="mt-6 text-xs text-red-500 text-center">{error}</p>
                     ) : (

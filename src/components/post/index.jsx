@@ -21,7 +21,7 @@ export default function Post({
     },
 }) {
     return (
-        <div className="flex flex-col bg-white mb-8 border-1 rounded-sm border-gray-300 ">
+        <div className="flex flex-col bg-white md:mb-8 md:border-1 rounded-sm border-gray-300 ">
             <Header username={username} postId={docId} />
             {imageSrc ? (
                 <Image imageSrc={imageSrc} caption={caption} />

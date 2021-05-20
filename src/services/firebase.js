@@ -204,9 +204,6 @@ export function getPhotoUrl(file) {
 }
 
 export async function deletePost(docId) {
-    firebase.firestore().collection("photos").doc(docId).delete().then(() => {
-        console.log("Document successfully deleted!");
-    }).catch((error) => {
-        console.error("Error removing document: ", error);
-    });
+    const result = await firebase.firestore().collection("photos").doc(docId).delete();
+    console.log(result)
 }

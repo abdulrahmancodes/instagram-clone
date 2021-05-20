@@ -25,7 +25,7 @@ export default function UserPosts({ userId }) {
                         src={post.imageSrc}
                         alt={post.docId}
                         key={post.imageSrc}
-                        className="w-full h-full"
+                        className="block w-full h-36 sm:h-72"
                     />
                 ))
             ) : (

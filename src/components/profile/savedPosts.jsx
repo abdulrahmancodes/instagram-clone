@@ -28,7 +28,7 @@ export default function SavedPosts({ userId }) {
                         src={post.imageSrc}
                         alt={post.caption}
                         key={post.imageSrc}
-                        className="w-full h-full"
+                        className="block w-full h-36 sm:h-72"
                     />
                 ))
             ) : (

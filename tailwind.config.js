@@ -1,5 +1,5 @@
 module.exports = {
-  purge: [],
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
@@ -23,7 +23,7 @@ module.exports = {
       },
 
       backgroundImage: theme => ({
-        'bg-phones': "url('./images/phones.png')",
+        'bg-phones': "url('/images/phones.png')",
         'all-images': "url('images/all-images.png')",
         'plus': "url('/images/plus.svg')"
       }),
